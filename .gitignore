@@ -1,0 +1,5 @@
+.venv/
+.env
+__pycache__/
+*-key.json
+application_default_credentials.json
