@@ -22,7 +22,7 @@ def replace_prefix(client: storage.Client, bucket_name: str, prefix: str,
     except NotFound:
         pass
 
-    for blod in client.list_blobs(bucket_name, prefix):
+    for blod in client.list_blobs(bucket_name, prefix=prefix):
         blod.delete()
 
     for name, (body, content_type) in files.items():
@@ -33,7 +33,7 @@ def replace_prefix(client: storage.Client, bucket_name: str, prefix: str,
 def read_landing_pages(client: storage.Client, bucket_name: str, 
                        source: str, ingest_date: date ) -> list[tuple[str, str]]:
     prefix =  landing_prefix(source, ingest_date)
-    blobs = list(client.list_blobs(bucket_name, prefix))          
+    blobs = list(client.list_blobs(bucket_name, prefix=prefix))          
     if not any(b.name == prefix + SUCCESS for b in blobs):
         raise LandingNotReady(f"Chưa có gs://{bucket_name}/{prefix}{SUCCESS}")
     return [
