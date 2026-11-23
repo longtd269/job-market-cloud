@@ -4,3 +4,4 @@ __pycache__/
 *-key.json
 application_default_credentials.json
 /tmp
+*.egg-info/
