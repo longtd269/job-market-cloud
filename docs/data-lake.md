@@ -11,6 +11,9 @@
 raw/source=<nguồn>/ingest_date=YYYY-MM-DD/part-000.jsonl
 raw/source=<nguồn>/ingest_date=YYYY-MM-DD/_SUCCESS
 
+landing/source=<nguồn>/ingest_date=YYYY-MM-DD/*.html
+landing/source=<nguồn>/ingest_date=YYYY-MM-DD/_SUCCESS
+
 ## Quy tắc
 
 1. raw/ chỉ pipeline ghi, không ai sửa tay.
