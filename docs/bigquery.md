@@ -5,7 +5,7 @@
 - Quyền: sa-pipeline có dataEditor trên 4 dataset pipeline (infra/bigquery/grants.sql)
 - Hàng rào: ~/.bigqueryrc maximum_bytes_billed = 1 GB; bảng thật luôn partition theo ngày + require_partition_filter
 
-## Kết quả phòng lab (ngày YYYY-MM-DD)
+## Kết quả phòng lab (ngày 2026-11-25)
 
 Bảng jobs_flat: 2,000,000 dòng, 532.66 MB
 
@@ -25,3 +25,11 @@ Bảng jobs_flat: 2,000,000 dòng, 532.66 MB
 Có partition thì query sẽ tốn ít bytes billed hơn
 Nếu được cached thì sẽ không tốn bytes billed
 Hãy để require partition để gom nhóm tránh query quá nhiều
+
+
+
+## Thiết kế bảng
+
+raw.jobs (DAY + require filter)
+
+fct (DAY hay MONTH, cluster city/category)
